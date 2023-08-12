@@ -44,20 +44,20 @@
 // const dog1 = { name: "뽀삐", owner: "성준" };
 // const dog2 = { name: "도기", owner: "성훈" };
 
-// function Dog(name, owner) {
-//   // 생성자 함수
-//   this.name = name;
-//   this.owner = owner;
-//   // 인스턴스 레벨의 함수 : 생성자 함수를 통해 생성된 모든 객체에 포함이 되서 메모리 낭비를 불러 일으킴
-//   this.printName = () => {
-//     console.log(this.name);
-//   };
-// }
+function Dog(name, owner) {
+  // 생성자 함수
+  this.name = name;
+  this.owner = owner;
+  // 인스턴스 레벨의 함수 : 생성자 함수를 통해 생성된 모든 객체에 포함이 되서 메모리 낭비를 불러 일으킴
+  this.printName = () => {
+    console.log(this.name);
+  };
+}
 
-// // 프로토 타입 레벨의 함수 : 메모리를 절약할 수 있음
-// Dog.prototype.printName = () => {
-//   console.log(this.name);
-// };
+// 프로토 타입 레벨의 함수 : 메모리를 절약할 수 있음
+Dog.prototype.printName = () => {
+  console.log(this.name);
+};
 
 // const dog1 = new Dog("뽀삐", "성준");
 // const dog2 = new Dog("도기", "성훈");
@@ -97,19 +97,19 @@
 //   this.age = age;
 // }
 
-// Cat.prototype = Object.create(Dog.prototype); // 원래는 Object의 prototype을 상속받지만 Dog의 프로토타입을 상속받도록 변겨
+Cat.prototype = Object.create(Dog.prototype); // 원래는 Object의 prototype을 상속받지만 Dog의 프로토타입을 상속받도록 변겨
 
-// Cat.prototype.play = () => {
-//   console.log("고양이와 놀기!");
-// };
+Cat.prototype.play = () => {
+  console.log("고양이와 놀기!");
+};
 
-// const cat = new Cat("고양이", "엄성준", 25);
-// cat.play();
-// cat.printName(); // Dog의 prototype 함수인 printName을 사용할 수 있는 이유는 Object의 create()를 통해서
-// // Dog의 prototype을 상속받았기 때문
+const cat = new Cat("고양이", "엄성준", 25);
+cat.play();
+cat.printName(); // Dog의 prototype 함수인 printName을 사용할 수 있는 이유는 Object의 create()를 통해서
+// Dog의 prototype을 상속받았기 때문
 
-// console.log(cat instanceof Cat); // 객체가 instanceof 어떤 생성자 함수에게 상속받는지 알 수 있음
-// console.log(cat instanceof Dog); // cat은 생성자 함수 Cat을 통해서 생성 된 객체이고 Cat함수는 Dog함수를 상속받기 때문에 true 출력
+console.log(cat instanceof Cat); // 객체가 instanceof 어떤 생성자 함수에게 상속받는지 알 수 있음
+console.log(cat instanceof Dog); // cat은 생성자 함수 Cat을 통해서 생성 된 객체이고 Cat함수는 Dog함수를 상속받기 때문에 true 출력
 
 // const sleep = {
 //   sleep: () => {
