@@ -1,23 +1,10 @@
-const object1 = {
-  name: "엄성준",
-  age: 25,
-  food: {
-    kr: "gukbab",
-    jp: "ramen",
-    us: "pizza",
-  },
-  func: function () {
-    console.log("함수지롱");
-  },
-};
-
 // const object2 = object1;
 
 // console.log(object1 === object2);
 // object2.food.us = "buger";
 // console.log(object1);
 
-const object3 = { ...object1 };
+// const object3 = { ...object1 };
 
 // object3.name = "정우성";
 // console.log(object1);
@@ -30,9 +17,18 @@ const object3 = { ...object1 };
 
 const lodash = require("lodash");
 
-const object4 = lodash.cloneDeep(object1);
+const object1 = {
+  name: "노력",
+  age: 25,
+  food: {
+    kr: "gukbab",
+    jp: "ramen",
+    us: "pizza",
+  },
+};
 
-console.log(object1 === object4);
-object4.food.us = "buger";
-console.log(object1);
-console.log(object4);
+const object2 = lodash.cloneDeep(object1);
+
+console.log(object1 === object2); // false 출력
+object2.food.kr = "kimbab";
+console.log(object1); // object2의 2depth의 프로퍼티 value를 변경해도 변화 없음
